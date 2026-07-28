@@ -46,7 +46,7 @@ WOFF2 URL 會自動指向同一個固定版本。
 
 ## 線上試寫
 
-在 [台北黑體 playground](https://vdustr.dev/taipei-sans-tc/) 直接輸入文字，
+在 [台北黑體 playground](https://vp-tw.github.io/taipei-sans-tc/) 直接輸入文字，
 即時調整字級與字重。
 
 ## 授權與歸屬
