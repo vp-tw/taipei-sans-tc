@@ -1,0 +1,36 @@
+name: Deprecate legacy npm package
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type DEPRECATE to confirm the unscoped package deprecation.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deprecate:
+    if: inputs.confirmation == 'DEPRECATE'
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Verify the scoped replacement
+        run: |
+          test "$(npm view @vp-tw/taipei-sans-tc version)" = "0.2.0"
+          curl --fail --silent --show-error --head \
+            "https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@0.2.0/dist/Regular/TaipeiSansTCBeta-Regular.css"
+
+      - name: Deprecate the legacy package
+        run: |
+          npm deprecate taipei-sans-tc \
+            "Deprecated: use @vp-tw/taipei-sans-tc instead."
+          npm view taipei-sans-tc deprecated

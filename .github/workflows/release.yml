@@ -57,7 +57,7 @@ jobs:
           package="$(node -p "require('./packages/core/package.json').name")"
 
           if npm view "$package" version >/dev/null 2>&1; then
-            npm access public "$package"
+            npm access set status=public "$package"
             echo "available=true" >> "$GITHUB_OUTPUT"
           else
             echo "available=false" >> "$GITHUB_OUTPUT"
