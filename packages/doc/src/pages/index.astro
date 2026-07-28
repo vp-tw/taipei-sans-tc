@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout>
+  <header class="site-header">
+    <a class="wordmark" href={`${baseUrl}#top`} aria-label="台北黑體首頁">
+      <span class="wordmark-mark" aria-hidden="true">台</span>
+      <span>
+        <strong>台北黑體</strong>
+        <small>Taipei Sans TC</small>
+      </span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href={`${baseUrl}#specimen`}>試寫</a>
+      <a href={`${baseUrl}#scenes`}>情境</a>
+      <a href={`${baseUrl}#install`}>安裝</a>
+      <a href={`${baseUrl}#links`}>連結</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true">
+      <span class="theme-icon" aria-hidden="true">◐</span>
+      <span data-theme-label>深色</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero page-grid" aria-labelledby="hero-title">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Taipei Sans TC / 正體中文 / 印刷風格黑體</p>
+        <h1 id="hero-title">讓每一個字，<span>有自己的現場。</span></h1>
+        <p class="hero-lede">
+          台北黑體以思源黑體為基礎改作，為正體中文提供更適合印刷與編排的黑體選擇。從文字編排、平面設計到影音字幕，讓內容以清楚的語氣抵達讀者。
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href={`${baseUrl}#specimen`}>直接試寫 <span>↘</span></a>
+          <a class="text-link" href="https://github.com/vp-tw/taipei-sans-tc" target="_blank" rel="noreferrer">查看 GitHub <span>↗</span></a>
+        </div>
+        <div class="hero-meta" aria-label="字型特色">
+          <span>以思源黑體為基礎</span>
+          <span>印刷風格黑體</span>
+          <span>免費試用版</span>
+        </div>
+      </div>
+      <div class="hero-stage" data-hero-stage data-reveal aria-label="台北黑體展示">
+        <div class="hero-stage-top">
+          <span>台北／Taipei</span>
+          <span class="live-dot"><i aria-hidden="true"></i> Live type</span>
+        </div>
+        <div class="hero-word" aria-hidden="true">有字</div>
+        <p class="hero-stage-note"><span>字型不是背景。</span><span>它是內容抵達讀者之前，最先發生的語氣。</span></p>
+        <div class="hero-stage-footer">
+          <span>Regular 400</span>
+          <span>印刷風格黑體</span>
+        </div>
+      </div>
+      <a class="scroll-cue" href={`${baseUrl}#scenes`} aria-label="往下探索使用情境">
+        <span>Explore the scenes</span><span aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <section class="signal-strip" aria-label="字型宣言">
+      <div class="signal-track">
+        <span>給城市一個清楚的字</span><span aria-hidden="true">✳</span>
+        <span>Make room for meaning</span><span aria-hidden="true">✳</span>
+        <span>為每種閱讀距離而生</span><span aria-hidden="true">✳</span>
+        <span>給城市一個清楚的字</span><span aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <section class="section scenes-section" id="scenes" aria-labelledby="scenes-title">
+      <div class="section-heading section-heading-wide" data-reveal>
+        <p class="eyebrow">Made for the moment</p>
+        <h2 id="scenes-title"><span>同一套字，</span><span>在編排、設計與字幕中工作。</span></h2>
+        <p>官方以文字編排、平面設計與影音字幕為主要使用脈絡。這裡把它們放在同一個現場，看看字如何在不同距離保持清楚。</p>
+      </div>
+      <div class="scene-feature" data-reveal>
+        <div class="scene-feature-copy">
+          <p class="scene-index">01 / Graphic design</p>
+          <h3><span>平面上的訊息，</span><span>要先被看見。</span></h3>
+          <p>展覽、活動主視覺與印刷品，需要一個有辨識度、也經得起放大的中文字。台北黑體的穩定重心，讓短句在遠處依然清楚。</p>
+          <a class="arrow-link" href={`${baseUrl}#specimen`}>把你的標題放進來 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="scene-poster" aria-label="城市標語案例">
+          <span class="poster-label">Graphic design sample</span>
+          <strong><span>今天，</span><span>也要好好</span><span>生活。</span></strong>
+          <span class="poster-location">展覽主視覺／活動海報</span>
+        </div>
+      </div>
+      <div class="scene-pair">
+        <article class="scene-interface" data-reveal>
+          <div class="scene-card-top"><span>02 / Typesetting</span><span>文字編排</span></div>
+          <div class="interface-window">
+            <div class="interface-nav"><span class="interface-avatar">文</span><span>文字編排</span><span class="interface-menu">Aa</span></div>
+            <div class="interface-body"><small>字級、重量與行距</small><strong><span>讓段落有</span><span>清楚的層次。</span></strong><span class="interface-bar"><i></i></span></div>
+          </div>
+          <p>從標題到內文，編排的工作是讓閱讀有秩序。字重與字級之間，留得住資訊，也留得住呼吸。</p>
+        </article>
+        <article class="scene-editorial" data-reveal>
+          <div class="scene-card-top"><span>03 / Video subtitles</span><span>影音字幕</span></div>
+          <div class="editorial-copy"><span class="editorial-kicker">00:12:24 / Subtitle sample</span><p><span>今天，慢一點</span><span>也沒關係。</span></p><span class="editorial-author">— Taipei Sans TC specimen</span></div>
+          <p>字幕要在短暫時間內被讀懂。穩定的字面與清楚的節奏，讓觀眾把注意力留給畫面。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section specimen-section" id="specimen" aria-labelledby="specimen-title">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Direct type specimen</p>
+        <h2 id="specimen-title">直接在字面上輸入。</h2>
+        <p>點擊下方文字即可編輯；調整字級與字重，立刻看見它在畫面中的節奏。</p>
+      </div>
+      <div class="control-panel" data-reveal>
+        <div class="range-row">
+          <label for="specimen-size">字級 <output data-size-output>64px</output></label>
+          <input id="specimen-size" data-size type="range" min="20" max="144" value="64" step="1" />
+          <label for="specimen-weight">字重 <output data-weight-output>400</output></label>
+          <input id="specimen-weight" data-weight type="range" min="300" max="700" value="400" step="100" />
+        </div>
+      </div>
+      <div class="live-type" data-live-type contenteditable="true" role="textbox" aria-multiline="true" aria-label="展示文字，點擊後直接輸入" spellcheck="false">試試台北黑體
+Try Taipei Sans TC</div>
+      <div class="specimen-note"><span>直接點擊文字開始輸入；試著貼上你的首頁標題、產品通知或一段詩。</span><span>Type to find your voice ↘</span></div>
+    </section>
+
+    <section class="section split-section" id="install" aria-labelledby="install-title">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 id="install-title"><span>三步，</span><span>開始使用。</span></h2>
+        <p>套件內含以 unicode-range 分割的 WOFF2 字型，瀏覽器只會載入頁面真正需要的字元。</p>
+      </div>
+      <div class="install-options" data-reveal>
+        <div class="code-block" aria-label="以 npm 安裝台北黑體的程式碼">
+          <div class="code-toolbar"><span>terminal</span><span>npm / pnpm</span></div>
+          <pre><code><span class="code-muted"># install</span>
+pnpm add @vp-tw/taipei-sans-tc
+
+<span class="code-muted"># import</span>
+<span class="code-keyword">import</span> <span class="code-string">'@vp-tw/taipei-sans-tc'</span>;
+
+<span class="code-muted"># use</span>
+<span class="code-keyword">body</span> &#123; <span class="code-keyword">font-family</span>: <span class="code-string">'Taipei Sans TC'</span>, sans-serif; &#125;</code></pre>
+          <div class="code-caption"><span>Designed for the web.</span><span>Open for everyone.</span></div>
+        </div>
+        <div class="code-block" aria-label="以 jsDelivr 載入台北黑體的程式碼">
+          <div class="code-toolbar"><span>cdn</span><span>jsDelivr / pinned</span></div>
+          <pre><code><span class="code-muted">&lt;!-- load the stylesheet --&gt;</span>
+&lt;<span class="code-keyword">link</span> <span class="code-keyword">rel</span>=<span class="code-string">"stylesheet"</span>
+  <span class="code-keyword">href</span>=<span class="code-string">"https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@0.2.0/dist/Regular/TaipeiSansTCBeta-Regular.css"</span>&gt;
+
+<span class="code-muted">/* use it in your CSS */</span>
+<span class="code-keyword">body</span> &#123; <span class="code-keyword">font-family</span>: <span class="code-string">'Taipei Sans TC'</span>, sans-serif; &#125;</code></pre>
+          <div class="code-caption"><span>固定版號，避免未預期變動。</span><span>0.2.0 發布後可直接使用。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section links-section" id="links" aria-labelledby="links-title">
+      <div data-reveal>
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="links-title"><span>字體之外，</span><span>還有字的風景。</span></h2>
+      </div>
+      <div class="link-list" data-reveal>
+        <a href="https://sites.google.com/view/jtfoundry/zh-tw" target="_blank" rel="noreferrer">
+          <span>翰字鑄造 JT Foundry</span><span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://github.com/vp-tw/taipei-sans-tc" target="_blank" rel="noreferrer">
+          <span>Source &amp; releases</span><span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.facebook.com/jtfoundry/" target="_blank" rel="noreferrer">
+          <span>Facebook</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>台北黑體 Taipei Sans TC</span>
+    <span>非官方維護 demo · 字型資訊以 JT Foundry 官方為準</span>
+  </footer>
+</BaseLayout>

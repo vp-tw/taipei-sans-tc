@@ -1,40 +1,31 @@
 {
+  "name": "taipei-sans-tc-workspace",
+  "private": true,
   "scripts": {
-    "doc:build": "cd packages/doc && yarn build",
-    "pub": "lerna publish --conventional-commits",
-    "postinstall": "lerna bootstrap",
-    "commit": "git-cz"
+    "dev": "pnpm --filter doc dev",
+    "build": "pnpm build:fonts && pnpm build:site",
+    "build:site": "pnpm --filter doc build",
+    "build:fonts": "pnpm --filter @vp-tw/taipei-sans-tc fonts:build",
+    "preview": "pnpm --filter doc preview",
+    "check": "vp check",
+    "lint": "oxlint .",
+    "format": "oxfmt --check .changeset .github scripts package.json pnpm-workspace.yaml packages/core/package.json packages/doc/astro.config.ts packages/doc/src vite.config.ts",
+    "format:write": "oxfmt .changeset .github scripts package.json pnpm-workspace.yaml packages/core/package.json packages/doc/astro.config.ts packages/doc/src vite.config.ts",
+    "typecheck": "pnpm --filter doc check && tsc --project tsconfig.json --noEmit",
+    "changeset": "changeset",
+    "release": "changeset version && pnpm install --lockfile-only && pnpm build && changeset publish",
+    "release:publish": "pnpm build && changeset publish"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "commitizen": "^4.0.3",
-    "conventional-changelog-cli": "^2.0.23",
-    "cz-conventional-changelog": "^3.0.2",
-    "husky": "^3.0.5",
-    "lerna": "^3.16.4",
-    "lint-staged": "^9.4.0",
-    "prettier": "^1.18.2"
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.1",
+    "oxfmt": "^0.61.0",
+    "oxlint": "^1.76.0",
+    "typescript": "^7.0.2",
+    "vite-plus": "^0.2.6"
   },
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "engines": {
+    "node": ">=24.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,html,htm,vue,css,less,scss,md,mdx,yaml,yml}": [
-      "prettier --write",
-      "git add"
-    ]
-  }
+  "packageManager": "pnpm@11.17.0"
 }

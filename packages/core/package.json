@@ -1,32 +1,47 @@
 {
-  "name": "taipei-sans-tc",
-  "version": "0.1.1",
-  "description": "台北黑體 Taipei Sans TC",
+  "name": "@vp-tw/taipei-sans-tc",
+  "version": "0.2.0",
+  "description": "Unofficial webfont package for Taipei Sans TC — 讓每一個字，有自己的現場。",
   "keywords": [
     "font",
-    "sans",
     "taipei",
-    "noto",
-    "web",
-    "split",
-    "subset"
+    "taipei-sans-tc",
+    "unicode-range",
+    "unofficial",
+    "webfont",
+    "woff2",
+    "zh-hant"
   ],
-  "author": {
-    "name": "ViPro",
-    "email": "VdustR@gmail.com",
-    "url": "https://VdustR.github.io"
+  "homepage": "https://vdustr.dev/taipei-sans-tc/",
+  "bugs": {
+    "url": "https://github.com/vp-tw/taipei-sans-tc/issues"
   },
-  "license": "MIT",
-  "homepage": "https://vdustr.github.io/taipei-sans-tc/",
+  "license": "OFL-1.1 AND MIT",
+  "author": {
+    "name": "JT Foundry",
+    "url": "https://sites.google.com/view/jtfoundry/zh-tw"
+  },
+  "contributors": [
+    {
+      "name": "ViPro",
+      "email": "VdustR@gmail.com",
+      "url": "https://VdustR.github.io"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VdustR/taipei-sans-tc.git"
+    "url": "https://github.com/vp-tw/taipei-sans-tc.git"
   },
-  "bugs": {
-    "url": "https://github.com/VdustR/taipei-sans-tc/issues"
-  },
+  "style": "dist/Regular/TaipeiSansTCBeta-Regular.css",
   "files": [
-    "dist"
+    "dist",
+    "NOTICE.md"
   ],
-  "main": "dist/Regular/TaipeiSansTCBeta-Regular.css"
+  "main": "dist/Regular/TaipeiSansTCBeta-Regular.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "fonts:build": "bash ../../scripts/build-fonts.sh"
+  }
 }

@@ -1,15 +1,16 @@
 {
   "short_name": "台北黑體",
-  "name": "台北黑體 Taipei Sans TC",
+  "name": "台北黑體 Taipei Sans TC — 讓每一個字，有自己的現場。",
+  "description": "Taipei Sans TC 的非官方 webfont package 與試寫頁。",
   "icons": [
     {
       "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-png"
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/taipei-sans-tc/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#171a1f",
+  "background_color": "#171a1f"
 }

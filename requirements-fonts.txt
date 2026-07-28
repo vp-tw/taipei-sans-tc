@@ -1,0 +1,1 @@
+font-splitter @ git+https://github.com/VdustR/font-splitter.git@v0.2.1

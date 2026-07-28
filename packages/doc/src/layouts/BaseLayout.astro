@@ -1,0 +1,57 @@
+---
+import '@fontsource/noto-sans-tc/400.css';
+import '@fontsource/noto-sans-tc/600.css';
+import '@fontsource/noto-sans-tc/700.css';
+import '@vp-tw/taipei-sans-tc/dist/Regular/TaipeiSansTCBeta-Regular.css';
+import '@vp-tw/taipei-sans-tc/dist/Light/TaipeiSansTCBeta-Light.css';
+import '@vp-tw/taipei-sans-tc/dist/Bold/TaipeiSansTCBeta-Bold.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
+const ogImageUrl = new URL(`${baseUrl}og.png`, Astro.url.origin).toString();
+
+const {
+  title = '台北黑體 Taipei Sans TC — 讓每一個字，有自己的現場。',
+  description = '讓每一個字，有自己的現場。Taipei Sans TC 的非官方 webfont package 與試寫頁，提供 WOFF2 unicode-range subsets。',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-Hant" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171a1f" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href={`${baseUrl}favicon.png`} />
+    <link rel="manifest" href={`${baseUrl}manifest.json`} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="台北黑體 Taipei Sans TC" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>
