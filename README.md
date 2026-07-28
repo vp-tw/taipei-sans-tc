@@ -41,8 +41,8 @@ import '@vp-tw/taipei-sans-tc/dist/Bold/TaipeiSansTCBeta-Bold.css';
 />
 ```
 
-0.2.0 發布後，上述 URL 會由 jsDelivr 從 npm package 提供；CSS 內的相對
-WOFF2 URL 會自動指向同一個固定版本。
+每個 release 都有對應的 jsDelivr URL；CSS 內的相對 WOFF2 URL 會自動指向
+同一個固定版本。
 
 ## 線上試寫
 
