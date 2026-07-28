@@ -16,7 +16,7 @@ jobs:
     if: inputs.confirmation == 'DEPRECATE'
     runs-on: ubuntu-latest
     env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_LEGACY_TOKEN }}
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v4
