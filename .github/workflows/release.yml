@@ -50,13 +50,27 @@ jobs:
           commit: 'chore: release packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Ensure npm package is public
+        id: npm-package
+        if: env.NPM_TOKEN != ''
+        run: |
+          package="$(node -p "require('./packages/core/package.json').name")"
+
+          if npm view "$package" version >/dev/null 2>&1; then
+            npm access public "$package"
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Verify jsDelivr package delivery
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.npm-package.outputs.available == 'true'
         run: |
           version="$(node -p "require('./packages/core/package.json').version")"
           css_url="https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@$version/dist/Regular/TaipeiSansTCBeta-Regular.css"
 
-          for attempt in $(seq 1 12); do
+          curl --fail --silent --show-error "https://purge.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@$version/dist/Regular/TaipeiSansTCBeta-Regular.css"
+
+          for attempt in $(seq 1 20); do
             if curl --fail --silent --show-error --head "$css_url"; then
               exit 0
             fi
@@ -64,5 +78,5 @@ jobs:
             sleep 15
           done
 
-          echo "jsDelivr did not serve $css_url after 180 seconds." >&2
+          echo "jsDelivr did not serve $css_url after 300 seconds." >&2
           exit 1
