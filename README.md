@@ -31,18 +31,16 @@ import '@vp-tw/taipei-sans-tc/dist/Bold/TaipeiSansTCBeta-Bold.css';
 
 ### jsDelivr
 
-適合不使用 bundler 的靜態網站、原型或文件頁。預設以 `@0` 跟隨相容的 0.x
-更新；CSS 路徑與字重會維持相容。需要完全可重現的部署時，再改為精確版本。
+適合不使用 bundler 的靜態網站、原型或文件頁。
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@0/dist/Regular/TaipeiSansTCBeta-Regular.css"
+  href="https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc/dist/Regular/TaipeiSansTCBeta-Regular.css"
 />
 ```
 
-CSS 內的相對 WOFF2 URL 會自動指向同一個 0.x release。未來要採用新的 major
-版本時，將 `@0` 改為對應的 major 即可。
+CSS 會自動載入需要的 WOFF2 subsets。
 
 ## 線上試寫
 

@@ -21,17 +21,16 @@ import '@vp-tw/taipei-sans-tc/dist/Regular/TaipeiSansTCBeta-Regular.css';
 
 ## jsDelivr
 
-跟隨相容 0.x 更新的 CDN 入口：
+CDN 入口：
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc@0/dist/Regular/TaipeiSansTCBeta-Regular.css"
+  href="https://cdn.jsdelivr.net/npm/@vp-tw/taipei-sans-tc/dist/Regular/TaipeiSansTCBeta-Regular.css"
 />
 ```
 
-`@0` 會跟隨相容的 0.x release；CSS 會以相對路徑載入同一個 release 所需的
-WOFF2 subsets。需要完全可重現的部署時，可改為精確版本。
+CSS 會以相對路徑載入需要的 WOFF2 subsets。
 
 ## License
 
