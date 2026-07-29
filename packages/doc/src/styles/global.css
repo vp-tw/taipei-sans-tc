@@ -489,17 +489,32 @@ h3 > span,
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 2.5rem;
   padding: 1rem 0;
   font-family: var(--font-specimen);
   font-size: clamp(1rem, 2vw, 1.4rem);
   white-space: nowrap;
-  animation: marquee 24s linear infinite;
 }
 
-.signal-track span:nth-child(even) {
+.signal-track.is-ready {
+  animation: signal-marquee 24s linear infinite;
+}
+
+.signal-sequence {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  padding-right: 2.5rem;
+}
+
+.signal-sequence span:nth-child(even) {
   font-family: var(--font-ui);
   font-size: 0.75rem;
+}
+
+.signal-strip:hover .signal-track {
+  animation-play-state: paused;
 }
 
 .section {
@@ -986,9 +1001,9 @@ pre {
   }
 }
 
-@keyframes marquee {
+@keyframes signal-marquee {
   to {
-    transform: translateX(-25%);
+    transform: translate3d(calc(-1 * var(--signal-distance)), 0, 0);
   }
 }
 
@@ -1100,5 +1115,26 @@ pre {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .signal-strip {
+    overflow: visible;
+  }
+
+  .signal-track {
+    width: 100%;
+    animation-name: none !important;
+    white-space: normal;
+  }
+
+  .signal-sequence {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .signal-sequence[data-signal-copy='duplicate'] {
+    display: none;
   }
 }

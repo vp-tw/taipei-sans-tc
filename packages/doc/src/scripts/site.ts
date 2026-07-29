@@ -10,6 +10,8 @@ const sizeOutput = document.querySelector<HTMLOutputElement>('[data-size-output]
 const weightOutput = document.querySelector<HTMLOutputElement>('[data-weight-output]');
 const heroStage = document.querySelector<HTMLElement>('[data-hero-stage]');
 const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+const signalTrack = document.querySelector<HTMLElement>('[data-signal-track]');
+const signalSequence = document.querySelector<HTMLElement>('[data-signal-sequence]');
 
 const setTheme = (theme: Theme): void => {
   root.dataset['theme'] = theme;
@@ -43,6 +45,33 @@ const updateSpecimen = (): void => {
 sizeInput?.addEventListener('input', updateSpecimen);
 weightInput?.addEventListener('input', updateSpecimen);
 updateSpecimen();
+
+const updateSignalMarquee = (): void => {
+  if (!signalTrack || !signalSequence) return;
+
+  const sequenceWidth = signalSequence.getBoundingClientRect().width;
+  if (!sequenceWidth) return;
+
+  const copyCount = Math.max(2, Math.ceil(window.innerWidth / sequenceWidth) + 1);
+  const copies = Array.from(
+    signalTrack.querySelectorAll<HTMLElement>('[data-signal-copy]'),
+  );
+
+  copies.slice(copyCount).forEach((copy) => copy.remove());
+  for (let index = copies.length; index < copyCount; index += 1) {
+    const copy = signalSequence.cloneNode(true) as HTMLElement;
+    copy.dataset['signalCopy'] = 'duplicate';
+    copy.removeAttribute('data-signal-sequence');
+    signalTrack.append(copy);
+  }
+
+  signalTrack.style.setProperty('--signal-distance', `${sequenceWidth}px`);
+  signalTrack.classList.add('is-ready');
+};
+
+updateSignalMarquee();
+window.addEventListener('resize', updateSignalMarquee);
+if (document.fonts) document.fonts.ready.then(updateSignalMarquee);
 
 if (heroStage) {
   heroStage.addEventListener('pointermove', (event: PointerEvent) => {
