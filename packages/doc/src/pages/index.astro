@@ -4,6 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const signalMessages = [
+  '給城市一個清楚的字',
+  'Make room for meaning',
+  '為每種閱讀距離而生',
+];
 ---
 
 <BaseLayout>
@@ -63,11 +68,14 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/')
     </section>
 
     <section class="signal-strip" aria-label="字型宣言">
-      <div class="signal-track">
-        <span>給城市一個清楚的字</span><span aria-hidden="true">✳</span>
-        <span>Make room for meaning</span><span aria-hidden="true">✳</span>
-        <span>為每種閱讀距離而生</span><span aria-hidden="true">✳</span>
-        <span>給城市一個清楚的字</span><span aria-hidden="true">✳</span>
+      <div class="signal-track" data-signal-track aria-hidden="true">
+        <div class="signal-sequence" data-signal-copy="original" data-signal-sequence>
+          {signalMessages.map((message) => (
+            <>
+              <span>{message}</span><span>✳</span>
+            </>
+          ))}
+        </div>
       </div>
     </section>
 
