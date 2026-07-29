@@ -344,6 +344,7 @@ h3 > span,
 .hero-stage {
   --pointer-x: 50%;
   --pointer-y: 50%;
+  container-type: inline-size;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -421,12 +422,13 @@ h3 > span,
   align-self: center;
   color: var(--accent);
   font-family: var(--font-specimen);
-  font-size: clamp(10rem, 24vw, 22rem);
+  font-size: clamp(7rem, 40cqi, 18rem);
   font-weight: 300;
   letter-spacing: -0.09em;
   line-height: 0.72;
   transform: translateX(-0.04em);
   user-select: none;
+  white-space: nowrap;
   animation: hero-drift 9s ease-in-out infinite alternate;
 }
 
@@ -1046,7 +1048,7 @@ pre {
   }
 
   .hero-word {
-    font-size: clamp(9rem, 42vw, 16rem);
+    font-size: clamp(7rem, 40cqi, 13rem);
   }
 
   .scroll-cue {
