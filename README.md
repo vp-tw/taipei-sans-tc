@@ -1,5 +1,14 @@
 # 台北黑體 Taipei Sans TC
 
+> [!IMPORTANT]
+> **Archived / Deprecated**
+>
+> This repository and the `@vp-tw/taipei-sans-tc` npm package are no longer
+> maintained. Use [vp-tw/cjk-web-fonts](https://github.com/vp-tw/cjk-web-fonts)
+> and
+> [`@vp-tw/cjk-web-fonts-taipei-sans-tc`](https://www.npmjs.com/package/@vp-tw/cjk-web-fonts-taipei-sans-tc)
+> instead.
+
 > 讓每一個字，有自己的現場。
 
 Taipei Sans TC 的非官方 webfont package 與試寫頁。套件將字型拆分為
